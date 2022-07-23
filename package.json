@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/TheReginas/Backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0",
     "node-modules": "^1.0.1"
   }
 }
