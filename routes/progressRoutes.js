@@ -1,19 +1,19 @@
-const express = require('express')
-const app = express();
+const express = require('express');
+const router = express.Router();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
-const progressController = require('../controllers/progressCtrl')
+const progressCtrl = require('../controllers/progressCtrl')
 
-app.get('/', (req, res) =>{
+router.get('/', (req, res) =>{
     res.redirect('/progress')
 });
 
-app.get('/progress/new', function(req, res) {
+router.get('/progress/new', function(req, res) {
     res.render('new');
 })
 
-app.post('/progress', function(req, res) {
+router.post('/progress', function(req, res) {
     Task.create(req.body.task, function (err, newTask){
         if(err) {
             console.log("Can not CREATE new task err")
@@ -23,7 +23,7 @@ app.post('/progress', function(req, res) {
     })
 })
 
-app.put('/progress/:id', function (req,res){
+router.put('/progress/:id', function (req,res){
     Task.findByIdAndUpdate(req.params.id, req.body.task, function(err, updateTask){
         if(err) {
             console.log("Can not UPDATE task err")
@@ -31,10 +31,10 @@ app.put('/progress/:id', function (req,res){
             res.redirect("/progress/" + req.params.id)
 
         }
-    }
+    })
 })
 
-app.delete('/progress/:id', function(req, res) {
+router.delete('/progress/:id', function(req, res) {
     Task.findByIdAndRemove(req.params.id, function (err){
         if(err) {
             console.log("Can not DELETE task err")

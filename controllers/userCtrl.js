@@ -1,3 +1,8 @@
+exports.userCtrl = (req, res) => {
+    res.json({
+        openUsers: [ "User 1", "User 2"]
+    })
+}
 
 const User = require('../models/user')
 const bcrypt = require('bcrypt')

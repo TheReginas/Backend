@@ -4,7 +4,7 @@ const progressSchema = new mongoose.Schema({
     task: [],
     //Task: Make a PB&J sandwich
     step: String,
-    //Task [ step1, step2, step3, step4 ]
+    //Task: [ step1, step2, step3, step4 ]
     complete: Boolean,
     assigned: String,
 
@@ -13,4 +13,4 @@ const progressSchema = new mongoose.Schema({
 
 const Task = mongoose.model('Task', progressSchema)
 
-model.exports = Task
+model.exports = Task;
