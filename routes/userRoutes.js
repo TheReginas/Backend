@@ -7,6 +7,10 @@ router.get('/', userCtrl.index)
 
 router.post('/', userCtrl.create )
 
+//added for user login
+
+router.post('/login', userCtrl.login)
+
 //route needed for updating a task?
 
 //the routes below are not the *focus* of the app, but for functionality
