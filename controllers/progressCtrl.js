@@ -1,4 +1,9 @@
-//Place connections here
+exports.progressCtrl = (req, res) => {
+    res.json({
+        allTasks: ["Task 1", "Task 2", "Final Task" ]
+    })
+}
+
 
 const Task = require('../models/progress')
 
@@ -8,9 +13,16 @@ const index = (req, res) => {
 
 async function createTask(req, res){
     console.log(req.body);
-    //I want each task to have at least 4 "steps" printed
-    //when created, so build that into the  
+    //I want each task to have at least 1  "step" printed
+    //when created... 
 }
+
+// Edit Task then add steps to that task?
+// Is this better as part of a form?
+
+// const addStep = (req, res) => {
+//     let { Task.id } = req.params.id
+// }
 
 const deleteTask = (req, res) => {
     let { id } = req.params
@@ -26,3 +38,8 @@ const deleteTask = (req, res) => {
     })
 }
 
+module.exports = {
+    Task,
+    createTask,
+    deleteTask,
+}

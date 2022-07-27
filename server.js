@@ -8,6 +8,11 @@ app.listen(PORT, () => {
     console.log(`✅ PORT: ${PORT} 🌟`);
 })
 
+app.get('/', function(req, res) {
+    res.send("Connected to Express")
+    console.log("Connected to Express")
+})
+
 const cors = require('cors')
 require('./db/connection')
 
@@ -16,4 +21,5 @@ app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-
+app.use("/users/", require("./routes/userRoutes"))
+app.use("/progress/", require("./routes/progressRoutes"))
