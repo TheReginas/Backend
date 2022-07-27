@@ -1,0 +1,45 @@
+const express = require('express')
+const app = express();
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
+const progressController = require('../controllers/progressCtrl')
+
+app.get('/', (req, res) =>{
+    res.redirect('/progress')
+});
+
+app.get('/progress/new', function(req, res) {
+    res.render('new');
+})
+
+app.post('/progress', function(req, res) {
+    Task.create(req.body.task, function (err, newTask){
+        if(err) {
+            console.log("Can not CREATE new task err")
+        } else {
+            res.redirect("/progress")
+        }
+    })
+})
+
+app.put('/progress/:id', function (req,res){
+    Task.findByIdAndUpdate(req.params.id, req.body.task, function(err, updateTask){
+        if(err) {
+            console.log("Can not UPDATE task err")
+        } else {
+            res.redirect("/progress/" + req.params.id)
+
+        }
+    }
+})
+
+app.delete('/progress/:id', function(req, res) {
+    Task.findByIdAndRemove(req.params.id, function (err){
+        if(err) {
+            console.log("Can not DELETE task err")
+        } else {
+            res.redirect("/progress")
+        } 
+    })
+})

@@ -10,8 +10,15 @@ app.listen(PORT, () => {
 const cors = require('cors')
 require('./db/connection')
 
+//middlewares
 app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+<<<<<<< HEAD
+=======
+//pages
+app.use('/user', userRoutes)
+
+>>>>>>> AW-branch
