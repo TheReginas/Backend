@@ -16,6 +16,12 @@ app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> AW-branch
 //pages
 app.use('/user', userRoutes)
 
+>>>>>>> AW-branch
