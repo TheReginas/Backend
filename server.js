@@ -10,22 +10,7 @@ app.get('/', function(req, res) {
 
 const cors = require('cors')
 //require('dotenv').config();
+<<<<<<< HEAD
 require('./db/connection')
-
-//middlewares
-app.use(cors())
-app.use(morgan('tiny'))
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-
-// SS-branch
-app.use("/users/", require("./routes/userRoutes"))
-app.use("/progress/", require("./routes/progressRoutes"))
-
-
-//app.use('/user', userRoutes)
-
-
-app.listen(PORT, () => {
-    console.log(`✅ PORT: ${PORT} 🌟`);
-})
+=======
+require('./db/connection');

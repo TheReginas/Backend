@@ -4,7 +4,7 @@ const userCtrl = require('../controllers/userCtrl');
 const User = require('../../models/user');
 
 
-router.get('/', userCtrl.User())
+
 
 router.post('/', userCtrl.createUser)
 
