@@ -6,11 +6,11 @@ const progressSchema = new mongoose.Schema({
     step: String,
     //Task: [ step1, step2, step3, step4 ]
     complete: Boolean,
-    assigned: String,
+    assigned: String
 
 
 })
 
-const Task = mongoose.model('Task', progressSchema)
+//const Task = mongoose.model('Task', progressSchema)
 
-model.exports = Task;
+module.exports = mongoose.model('Progress', progressSchema)
