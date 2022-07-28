@@ -5,11 +5,12 @@ const userCtrl = require('../controllers/userCtrl');
 
 // router.get('/', userCtrl.index)
 
-router.post('/', userCtrl.createUser)
+//router.post('/', userCtrl.createUser)
 
 //added for user login
 
-router.post('/login', userCtrl.login)
+router.post('/login', userCtrl.login);
+router.post('/signup', userCtrl.signup)
 
 //route needed for updating a task?
 
