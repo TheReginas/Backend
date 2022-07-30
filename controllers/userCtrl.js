@@ -1,3 +1,7 @@
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET;
+
 exports.userCtrl = (req, res) => {
     res.json({
         openUsers: [ "User 1", "User 2"]
@@ -18,6 +22,7 @@ let createUser = (req, res) => {
 }
 
 const login = (req, res)=> {
+    try {
 User.findOne({name: req.body.name}, (err, u)=>{
     if(err){
         res.status(400).json(err)
@@ -33,12 +38,13 @@ return
         res.json(u)
     }else{
         res.status(204).json({msg: "Incoreect password! Try again!"})
-    }
-})
+        }   
+    })
+}
 }
 
 module.exports = {
     createUser,
-    login
+    login,
      
 }

@@ -11,6 +11,7 @@ const progressSchema = new mongoose.Schema({
 
 })
 
-const Task = mongoose.model('Task', progressSchema)
+//const Task = mongoose.model('Progress', progressSchema)
+//CREATE progressSchema.Task[]
 
-model.exports = Task;
+module.exports = mongoose.model('Progress', progressSchema)

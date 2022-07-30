@@ -43,3 +43,5 @@ router.delete('/progress/:id', function(req, res) {
         } 
     })
 })
+
+module.exports = router;
