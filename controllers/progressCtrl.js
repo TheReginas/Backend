@@ -13,8 +13,7 @@ const index = (req, res) => {
 
 async function createTask(req, res){
     console.log(req.body);
-    //I want each task to have at least 1  "step" printed
-    //when created... 
+    //I want each task to have at least 1  "step" printed 
 }
 
 // Edit Task then add steps to that task?
