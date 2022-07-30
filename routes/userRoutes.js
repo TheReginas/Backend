@@ -1,17 +1,20 @@
-const express = require('express')
-const router = express.Router()
-const userCtrl = require('../controllers/userCtrl')
+const express = require('express');
+const router = express.Router();
+const userCtrl = require('../controllers/userCtrl');
+const User = require('../../models/user');
 
 
-router.get('/', userCtrl.index)
+router.get('/', userCtrl.User())
 
-router.post('/', userCtrl.create )
+router.post('/', userCtrl.createUser)
 
-//route needed for updating a task?
+//added for user login
+
+router.post('/login', userCtrl.login)
 
 //the routes below are not the *focus* of the app, but for functionality
-router.put('/:id', userCtrl.update)
+//router.put('/:id', userCtrl.updateUser)
 
-router.delete('/:id', userCtrl.deleteIt)
+//router.delete('/:id', userCtrl.deleteIt)
 
-module.exports = router
+module.exports = router;
