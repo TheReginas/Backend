@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use("/users/", require("./routes/userRoutes.js"));
-app.use("/progress/", require('./routes/progressRoutes.js'));
+app.use("/logs/", require('./routes/logRoutes.js'));
 
 
 app.get('/api', (req, res)=>{
