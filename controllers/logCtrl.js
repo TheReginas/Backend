@@ -10,7 +10,7 @@ const index = (req, res) => {
     })
 }
 
-const createTask = (req, res) => {
+const createTask = async (req, res) => {
     console.log(req.body);
 
     let newTask = await Task.create(req.body)
@@ -45,6 +45,14 @@ const updateTask = (req, res) => {
         })
     })
 }
+ const editTask = (req, res) =>{
+    if(err){
+        res.status(400).json(err)
+            return
+        }
+        res.json(tasks)
+ }
+
 
 module.exports = {
     index,
