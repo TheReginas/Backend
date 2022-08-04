@@ -16,7 +16,7 @@ const createTask = async (req, res) => {
     let newTask = await Task.create(req.body)
 
     res.json(newTask)
-   
+  
 }
 
 
