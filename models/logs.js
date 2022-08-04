@@ -4,8 +4,8 @@ const logSchema = new mongoose.Schema({
 
    task :{
 
-        taskName: String,
-        description: String,
+        task: String,
+        workNotes: String,
         teamMember: String,
     }
 
