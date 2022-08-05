@@ -13,8 +13,8 @@ const index = (req, res) => {
 const createTask = async (req, res) => {
     console.log(req.body);
 
-    let newTask = await Task.create(req.body)
-
+    const newTask = await Task.create(req.body)
+    console.log(newTask)
     res.json(newTask)
   
 }
@@ -35,12 +35,12 @@ const deleteTask = (req, res) => {
 }
 
 const updateTask = (req, res) => {
-    Task.findByIdAndUpdate(req.params.id, req.body, (err, taks)=>{
+    Task.findByIdAndUpdate(req.params.id, req.body, (err, tasks)=>{
         if(err){
             res.status(400).json(err)
             return
         }
-        Task.fin({}, (error, tasks) =>{
+        Task.find({}, (error, tasks) =>{
             res.json(tasks)
         })
     })
