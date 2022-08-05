@@ -1,47 +1,46 @@
 const User = require('../models/user');
-const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET
 
 
-const login = (req, res) => {
-  User.findOne ({name: req.body.name}, (err, user)=> {
-    if (err){
-    res.status(400).json(err)
-    return
-  } 
-    if (err){
-      res.status(400).json({ msg: 'Username isnt valid '})
-      return
-    }
-    if (bcrypt.compareSync(req.body.password, user.password)){
-      delete user.password
-      res.json(user)
-
-    }else{
-      res.status(204).json({msg: 'Password isnt invalid'})
-    }
-
-  })
+async function signup(req, res) {
+  const user = new User(req.body);
+  try {
+    await user.save();
+    const token = createJWT(user);
+    res.json({ token });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 }
 
-
-
-
-
-
-
-
-
-
-module.exports = {
-  //signup,
-  login
+async function login (req, res) {
+  try {
+    const user = await User.findOne({email: req.body.email});
+    if (!user) return res.status(401).json({err: 'Invalid credentials'});
+    user.comparePassword(req.body.pw, (err, isMatch) => {
+      if (isMatch) {
+        const token = createJWT(user);
+        res.json({token});
+      } else {
+        return res.status(401).json({err: 'Invalid credentials'});
+      }
+    });
+  } catch (err) {
+    return res.status(400).json(err);
+  }
 }
-
 
 function createJWT(user) {
   return jwt.sign(
-    {user},
+    {user}, 
     SECRET,
     {expiresIn: '24h'}
-  );
-}
+    );
+  }
+  
+  
+  module.exports = {
+    signup,
+    login
+  };

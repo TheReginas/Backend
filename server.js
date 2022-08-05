@@ -9,13 +9,10 @@ app.get('/', function(req, res) {
     console.log("Connected to Express")
 })
 
-//require('dotenv').config();
-<<<<<<< HEAD
-require('./db/connection')
-=======
+
+
+require('dotenv').config();
 require('./db/connection');
-<<<<<<< HEAD
-=======
 
 //middlewares
 app.use(cors())
@@ -24,15 +21,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
-app.use("/users/", require("./routes/userRoutes.js"));
-app.use("/logs/", require('./routes/logRoutes.js'));
+app.use("/users", require("./routes/userRoutes.js"));
+app.use("/logs", require('./routes/logRoutes.js'));
 
-
-app.get('/api', (req, res)=>{
-    res.json({message:"Connected to Express"})
-})
 
 app.listen(PORT, () => {
     console.log(`✅ PORT: ${PORT} 🌟`);
 })
->>>>>>> 684fd7b (re sturcture)

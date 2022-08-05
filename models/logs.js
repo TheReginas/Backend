@@ -2,16 +2,15 @@ const mongoose = require('mongoose')
 
 const logSchema = new mongoose.Schema({
 
-   task :{
+   
 
         task: String,
         workNotes: String,
-        teamMember: String,
-    }
-
-
+        teamMember: String
+    
+    
 })
 
+const Task = mongoose.model('Log', logSchema)
 
-
-module.exports = mongoose.model('Log', logSchema)
+module.exports = Task
