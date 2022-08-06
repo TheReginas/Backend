@@ -4,7 +4,6 @@ const PORT = 6001;
 const morgan = require('morgan');
 const cors = require('cors')
 
-
 app.get('/', function(req, res) {
     res.send("Connected to Express")
     console.log("Connected to Express")
