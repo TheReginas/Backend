@@ -10,7 +10,6 @@ app.get('/', function(req, res) {
 })
 
 
-
 require('dotenv').config();
 require('./db/connection');
 
